@@ -8,30 +8,56 @@ class WorldClock {
 
     this.now = new Date();
 
+    // this.minutes =
+    //   this.now.getMinutes() < 10
+    //     ? `0${this.now.getMinutes()}`
+    //     : `${this.now.getMinutes()}`;
+
     //? Local hour to calculate (GMT+2)
 
     this.hours = this.now.getHours();
+
+    this.hours2 = this.now.getMinutes() * 60;
 
     //? Sydney Time
     this.sydneyHours = (8 + this.hours) % 24;
 
     //? TimeZones Hours Based on Central European Summer time
 
-    this.BSTHours = (1 - this.hours) % 24;
+    this.BSTHours = (this.hours - 1) % 24;
 
-    this.CETHours = (1 - this.hours) % 24;
+    this.CETHours = (this.hours - 1) % 24;
 
-    this.WESTHours = (1 - this.hours) % 24;
+    this.WESTHours = (this.hours - 1) % 24;
 
-    this.WATHours = (1 - this.hours) % 24;
+    this.WATHours = (this.hours - 1) % 24;
 
-    this.ISTHours = (1 - this.hours) % 24;
+    this.ISTHours = (this.hours - 1) % 24;
 
     this.CATHours = this.hours;
 
     this.SASTHours = this.hours;
 
     this.EETHours = this.hours;
+
+    this.ASTHours = (1 + this.hours) % 24;
+
+    this.EESTHours = (1 + this.hours) % 24;
+
+    this.EATHours = (1 + this.hours) % 24;
+
+    this.TRTHours = (1 + this.hours) % 24;
+
+    this.MSKHours = (1 + this.hours) % 24;
+
+    this.IDTHours = (1 + this.hours) % 24;
+
+    this.IRDTHours = (2 + this.hours) % 24;
+    this.IRDTMins = (30 + this.now.getMinutes()) % 60;
+
+    this.SCTHours = (2 + this.hours) % 24;
+
+    this.RETHours = (2 + this.hours) % 24;
 
     //? Timezone Lists
 
@@ -107,9 +133,53 @@ class WorldClock {
     this.SAST = ["Pretoria", "Maseru", "Mbabane"];
 
     this.EET = ["Tripoli", "Cairo"];
+
+    this.AST = ["Sana", "Riyadh", "Doha", "Kuwait", "Baghdad", "Manama"];
+
+    this.EEST = [
+      "Kyiv",
+      "Damascus",
+      "Bucharest",
+      "Chisinau",
+      "Vilnius",
+      "Beirut",
+      "Riga",
+      "Ammam",
+      "Athens",
+      "Helsinki",
+      "Tallinn",
+      "North Nicosia",
+      "Nicosia",
+      "Sofia",
+    ];
+
+    this.EAT = [
+      "Kampala",
+      "Dodoma",
+      "Mogadishu",
+      "Antananarivo",
+      "Nairobi",
+      "Addis Ababa",
+      "Asmara",
+      "Djibouti",
+      "Moroni",
+    ];
+
+    this.TRT = ["Ankara"];
+
+    this.MSK = ["Moscow", "Minsk"];
+
+    this.IDT = ["Jerusalem"];
+
+    this.IRDT = ["Tehran"];
+
+    this.GST = ["Abu Dhabi"];
+
+    this.SCT = ["Victoria"];
+
+    this.RET = ["Saint-Denis"];
   }
 
-  //! CHECK HOW TO GET RID OF "-" and if I can start at GMT (UTC)
   printGMT() {
     return `${this.GMTHours}`;
   }
@@ -252,6 +322,153 @@ class WorldClock {
         }
       }
     }
+
+    //? AST
+    for (let city of this.AST) {
+      if (city === selectedCity) {
+        if (this.now.getMinutes() < 10) {
+          return `The current time in ${selectedCity} is ${
+            this.ASTHours
+          }:0${this.now.getMinutes()}`;
+        } else {
+          return `The current time in ${selectedCity} is ${
+            this.ASTHours
+          }:${this.now.getMinutes()}`;
+        }
+      }
+    }
+
+    //? EEST
+    for (let city of this.EEST) {
+      if (city === selectedCity) {
+        if (this.now.getMinutes() < 10) {
+          return `The current time in ${selectedCity} is ${
+            this.EESTHours
+          }:0${this.now.getMinutes()}`;
+        } else {
+          return `The current time in ${selectedCity} is ${
+            this.EESTHours
+          }:${this.now.getMinutes()}`;
+        }
+      }
+    }
+
+    //? EAT
+    for (let city of this.EAT) {
+      if (city === selectedCity) {
+        if (this.now.getMinutes() < 10) {
+          return `The current time in ${selectedCity} is ${
+            this.EATHours
+          }:0${this.now.getMinutes()}`;
+        } else {
+          return `The current time in ${selectedCity} is ${
+            this.EATHours
+          }:${this.now.getMinutes()}`;
+        }
+      }
+    }
+
+    //? TRT
+    for (let city of this.TRT) {
+      if (city === selectedCity) {
+        if (this.now.getMinutes() < 10) {
+          return `The current time in ${selectedCity} is ${
+            this.TRTHours
+          }:0${this.now.getMinutes()}`;
+        } else {
+          return `The current time in ${selectedCity} is ${
+            this.TRTHours
+          }:${this.now.getMinutes()}`;
+        }
+      }
+    }
+
+    //? MSK
+    for (let city of this.MSK) {
+      if (city === selectedCity) {
+        if (this.now.getMinutes() < 10) {
+          return `The current time in ${selectedCity} is ${
+            this.MSKHours
+          }:0${this.now.getMinutes()}`;
+        } else {
+          return `The current time in ${selectedCity} is ${
+            this.MSKHours
+          }:${this.now.getMinutes()}`;
+        }
+      }
+    }
+
+    //? IDT
+    for (let city of this.IDT) {
+      if (city === selectedCity) {
+        if (this.now.getMinutes() < 10) {
+          return `The current time in ${selectedCity} is ${
+            this.IDTHours
+          }:0${this.now.getMinutes()}`;
+        } else {
+          return `The current time in ${selectedCity} is ${
+            this.IDTHours
+          }:${this.now.getMinutes()}`;
+        }
+      }
+    }
+
+    //! 30 + mins
+    //? IRDT
+    for (let city of this.IRDT) {
+      if (city === selectedCity) {
+        if (this.now.getMinutes() < 10) {
+          return `The current time in ${selectedCity} is ${this.IRDTHours}:0${this.IRDTMins}`;
+        } else {
+          return `The current time in ${selectedCity} is ${this.IRDTHours}:${this.IRDTMins}`;
+        }
+      }
+    }
+
+    //? GST
+    for (let city of this.GST) {
+      if (city === selectedCity) {
+        if (this.now.getMinutes() < 10) {
+          return `The current time in ${selectedCity} is ${
+            this.GSTHours
+          }:0${this.now.getMinutes()}`;
+        } else {
+          return `The current time in ${selectedCity} is ${
+            this.GSTHours
+          }:${this.now.getMinutes()}`;
+        }
+      }
+    }
+
+    //? SCT
+    for (let city of this.SCT) {
+      if (city === selectedCity) {
+        if (this.now.getMinutes() < 10) {
+          return `The current time in ${selectedCity} is ${
+            this.SCTHours
+          }:0${this.now.getMinutes()}`;
+        } else {
+          return `The current time in ${selectedCity} is ${
+            this.SCTHours
+          }:${this.now.getMinutes()}`;
+        }
+      }
+    }
+
+    //? RET
+    for (let city of this.RET) {
+      if (city === selectedCity) {
+        if (this.now.getMinutes() < 10) {
+          return `The current time in ${selectedCity} is ${
+            this.RETHours
+          }:0${this.now.getMinutes()}`;
+        } else {
+          return `The current time in ${selectedCity} is ${
+            this.RETHours
+          }:${this.now.getMinutes()}`;
+        }
+      }
+    }
   }
 
   // new Date to print as string
@@ -354,6 +571,33 @@ console.log(clockToCall.capitalCityTime("Pretoria"));
 
 console.log(clockToCall.capitalCityTime("Tripoli"));
 console.log(clockToCall.capitalCityTime("Maseru"));
+
+console.log(clockToCall.capitalCityTime("Sana"));
+console.log(clockToCall.capitalCityTime("Kyiv"));
+
+console.log(clockToCall.capitalCityTime("Kampala"));
+console.log(clockToCall.capitalCityTime("Ankara"));
+
+console.log(clockToCall.capitalCityTime("Moscow"));
+console.log(clockToCall.capitalCityTime("Chisinau"));
+
+console.log(clockToCall.capitalCityTime("Abu Dhabi"));
+console.log(clockToCall.capitalCityTime("Victoria"));
+
+console.log(clockToCall.capitalCityTime("Saint-Denis"));
+
+console.log("To check logic later =================");
+
+//! Come back to check on this logic...
+
+console.log(`${clockToCall.IRDTHours}:${clockToCall.IRDTMins}`);
+console.log(clockToCall.capitalCityTime("Tehran"));
+
+console.log("==================================");
+
+console.log(clockToCall.hours);
+console.log(clockToCall.IRDTHours);
+console.log(clockToCall.IRDTMins);
 
 //? Calling time zine with console.table..
 
