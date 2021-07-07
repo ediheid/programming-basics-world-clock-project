@@ -8,11 +8,6 @@ class WorldClock {
 
     this.now = new Date();
 
-    // this.minutes =
-    //   this.now.getMinutes() < 10
-    //     ? `0${this.now.getMinutes()}`
-    //     : `${this.now.getMinutes()}`;
-
     //? Local hour to calculate (GMT+2)
 
     this.hours = this.now.getHours();
@@ -25,7 +20,7 @@ class WorldClock {
     //? TimeZones Hours Based on Central European Summer time
 
     // British Summer Time
-    this.BSTHours = (this.hours - 1) % 24;
+    this.BRITSTHours = (this.hours - 1) % 24;
 
     // Central European Time
     this.CETHours = (this.hours - 1) % 24;
@@ -124,7 +119,7 @@ class WorldClock {
     this.WIBHours = (5 + this.hours) % 24;
 
     // China STandard Time
-    this.CSTHours = (6 + this.hours) % 24;
+    this.CHSTHours = (6 + this.hours) % 24;
 
     // Singapore Time
     this.SGTHours = (6 + this.hours) % 24;
@@ -195,6 +190,84 @@ class WorldClock {
     // West Samoa Time
     this.WSTHours = (this.hours - 13) % 24;
 
+    // Cook Island Time
+    this.CKTHours = (this.hours - 12) % 24;
+
+    // Pictairn Standard Time
+    this.PSTHours = (this.hours - 10) % 24;
+
+    // Central Standard Time
+    this.CSTHours = (this.hours - 8) % 24;
+
+    // Peru Time
+    this.PETHours = (this.hours - 7) % 24;
+
+    // Eastern Standard Time
+    this.ESTHours = (this.hours - 7) % 24;
+
+    // Central Daylight Time
+    this.CDTHours = (this.hours - 7) % 24;
+
+    // Ecuador Time
+    this.ECTHours = (this.hours - 7) % 24;
+
+    // Colombia Time
+    this.COTHours = (this.hours - 7) % 24;
+
+    // Venezuelan Standard Time
+    this.VETHours = (this.hours - 6) % 24;
+
+    // Eastern Daylight Time
+    this.EDTHours = (this.hours - 6) % 24;
+
+    // Atlantic Standard Time
+    this.atlanticSHours = (this.hours - 6) % 24;
+
+    // Paraguay Time
+    this.PYTHours = (this.hours - 6) % 24;
+
+    // Guyana Time
+    this.GYTHours = (this.hours - 6) % 24;
+
+    // Cuba Daylight Time
+    this.cubaDTHours = (this.hours - 6) % 24;
+
+    // Chile Standard Time
+    this.CLTHours = (this.hours - 6) % 24;
+
+    // Bolivia Time
+    this.BOTHours = (this.hours - 6) % 24;
+
+    // Uruguay Time
+    this.UYTHours = (this.hours - 5) % 24;
+
+    // Suriname Time
+    this.SRTHours = (this.hours - 5) % 24;
+
+    // Falkland Islands Summer Time Time
+    this.FKSTHours = (this.hours - 5) % 24;
+
+    // Brasilia Time
+    this.BRTHours = (this.hours - 5) % 24;
+
+    // Atlantic Daylight Time
+    this.ADTHours = (this.hours - 5) % 24;
+
+    // Argentina Time
+    this.ARTHours = (this.hours - 5) % 24;
+
+    // Argentina Time
+    this.georgiaSTHours = (this.hours - 4) % 24;
+
+    // Western Greenland Summer Time
+    this.WGSTHours = (this.hours - 4) % 24;
+
+    // Cape Verde Summer Time
+    this.CVTHours = (this.hours - 3) % 24;
+
+    // Grrenwich Mean Time
+    this.GMTHours = (this.hours - 2) % 24;
+
     // -------------------------------------------
 
     //!  Timezones with 30+ on minutes...
@@ -229,7 +302,7 @@ class WorldClock {
     // Timezone Lists
     // =======================================
 
-    this.BST = ["Douglas", "London"];
+    this.BRITST = ["Douglas", "London"];
 
     this.CET = ["Tunis", "Algiers"];
 
@@ -375,7 +448,7 @@ class WorldClock {
 
     this.WIB = ["Jakarta"];
 
-    this.CST = ["Taipei", "Beijing"];
+    this.CHST = ["Taipei", "Beijing"];
 
     this.SGT = ["Singapore"];
 
@@ -423,6 +496,103 @@ class WorldClock {
 
     this.WST = ["Apia"];
 
+    this.CKT = ["Rarotonga"];
+
+    this.PST = ["Adamstown"];
+
+    this.CST = [
+      "Managua",
+      "Tegucigalpa",
+      "Guatemala City",
+      "San Salvador",
+      "San Jose",
+      "Belmopan",
+    ];
+
+    this.PET = ["Lima"];
+
+    this.EST = ["Panama", "Kingston", "George Town"];
+
+    this.CDT = ["Mexico City"];
+
+    this.ECT = ["Quito"];
+
+    this.COT = ["Bogota"];
+
+    this.VET = ["Caracas"];
+
+    this.EDT = [
+      "Washington DC",
+      "Cockburn Town",
+      "Port-au-Prince",
+      "Ottawa",
+      "Ontario",
+      "Nassau",
+    ];
+
+    this.atlanticS = [
+      "Port of Spain",
+      "Kingstown",
+      "Castries",
+      "Basseterre",
+      "San Juan",
+      "Brades",
+      "Saint George's",
+      "Santo Domingo",
+      "Roseau",
+      "Road Town",
+      "Tortola",
+      "Bridgetown",
+      "Oranjestad",
+      "Saint John's",
+    ];
+
+    this.PYT = ["Asuncion"];
+
+    this.GYT = ["Georgetown"];
+
+    this.cubaDT = ["Havana"];
+
+    this.CLT = ["Santiago"];
+
+    this.BOT = ["Sucre"];
+
+    this.UYT = ["Montevideo"];
+
+    this.SRT = ["Paramaribo"];
+
+    this.FKST = ["Stanley"];
+
+    this.BRT = ["Brasilia"];
+
+    this.ADT = ["Hamilton"];
+
+    this.ART = ["Buenos Aires"];
+
+    this.georgiaST = ["King Edward Point"];
+
+    this.WGST = ["Nuuk"];
+
+    this.CVT = ["Praia"];
+
+    this.GMT = [
+      "Lome",
+      "Freetown",
+      "Dakar",
+      "Sao Tome",
+      "Jamestown",
+      "Nouakchott",
+      "Bamako",
+      "Monrovia",
+      "Reykjavik",
+      "Bissau",
+      "Conakry",
+      "Accra",
+      "Banjul",
+      "Yamoussoukro",
+      "Ouagadougou",
+    ];
+
     //! Timezones with 30+ on minutes...
 
     this.AFT = ["Kabul"];
@@ -442,7 +612,6 @@ class WorldClock {
     let property = Object.entries(this);
     let currentTimeZone;
     let currentTime;
-
     let hourForward;
 
     //!  Timezones with 30+ on minutes...
@@ -452,6 +621,8 @@ class WorldClock {
     //!  Timezones with 45+ on minutes...
     let currentTimeZonePlusFortyFive;
     let currentTimePlusFortyFive;
+
+    //? Timezone Test
 
     //? Regular timeZone first test
     for (let key of property) {
@@ -469,8 +640,8 @@ class WorldClock {
     }
 
     switch (currentTimeZone) {
-      case "BST":
-        currentTime = this.BSTHours;
+      case "BRITST":
+        currentTime = this.BRITSTHours;
 
         break;
       case "MSK":
@@ -601,7 +772,7 @@ class WorldClock {
         currentTime = this.WIBHours;
 
         break;
-      case "CST":
+      case "CHST":
         currentTime = this.CSTHours;
 
         break;
@@ -695,6 +866,110 @@ class WorldClock {
         break;
       case "WST":
         currentTime = this.WSTHours;
+
+        break;
+      case "CKT":
+        currentTime = this.CKTHours;
+
+        break;
+      case "PST":
+        currentTime = this.PSTHours;
+
+        break;
+      case "CST":
+        currentTime = this.CSTHours;
+
+        break;
+      case "PET":
+        currentTime = this.PETHours;
+
+        break;
+      case "EST":
+        currentTime = this.ESTHours;
+
+        break;
+      case "CDT":
+        currentTime = this.CDTHours;
+
+        break;
+      case "ECT":
+        currentTime = this.ECTHours;
+
+        break;
+      case "COT":
+        currentTime = this.COTHours;
+
+        break;
+      case "VET":
+        currentTime = this.VETHours;
+
+        break;
+      case "EDT":
+        currentTime = this.EDTHours;
+
+        break;
+      case "atlanticS":
+        currentTime = this.atlanticSHours;
+
+        break;
+      case "PYT":
+        currentTime = this.PYTHours;
+
+        break;
+      case "GYT":
+        currentTime = this.GYTHours;
+
+        break;
+      case "cubaDT":
+        currentTime = this.cubaDTHours;
+
+        break;
+      case "CLT":
+        currentTime = this.CLTHours;
+
+        break;
+      case "BOT":
+        currentTime = this.BOTHours;
+
+        break;
+      case "UYT":
+        currentTime = this.UYTHours;
+
+        break;
+      case "SRT":
+        currentTime = this.SRTHours;
+
+        break;
+      case "FKST":
+        currentTime = this.FKSTHours;
+
+        break;
+      case "BRT":
+        currentTime = this.BRTHours;
+
+        break;
+      case "ADT":
+        currentTime = this.ADTHours;
+
+        break;
+      case "ART":
+        currentTime = this.ARTHours;
+
+        break;
+      case "georgiaST":
+        currentTime = this.georgiaSTHours;
+
+        break;
+      case "WGST":
+        currentTime = this.WGSTHours;
+
+        break;
+      case "CVT":
+        currentTime = this.CVTHours;
+
+        break;
+      case "GMT":
+        currentTime = this.GMTHours;
     }
 
     //!  Timezones with 30+ on minutes...
@@ -908,3 +1183,49 @@ console.log(test.setTime("Alofi"));
 console.log(test.setTime("Nukualofa"));
 
 console.log(test.setTime("Apia"));
+console.log(test.setTime("Rarotonga"));
+
+console.log(test.setTime("Adamstown"));
+console.log(test.setTime("Managua"));
+
+console.log(test.setTime("Tegucigalpa"));
+console.log(test.setTime("Lima"));
+
+console.log(test.setTime("Panama"));
+console.log(test.setTime("Mexico City"));
+
+console.log(test.setTime("Kingston"));
+console.log(test.setTime("Quito"));
+
+console.log(test.setTime("Bogota"));
+console.log(test.setTime("Caracas"));
+
+console.log(test.setTime("Washington DC"));
+console.log(test.setTime("Cockburn Town"));
+
+console.log(test.setTime("Port of Spain"));
+console.log(test.setTime("San Juan"));
+
+console.log(test.setTime("Asuncion"));
+console.log(test.setTime("Georgetown"));
+
+console.log(test.setTime("Havana"));
+console.log(test.setTime("Santiago"));
+
+console.log(test.setTime("Sucre"));
+console.log(test.setTime("Montevideo"));
+
+console.log(test.setTime("Paramaribo"));
+console.log(test.setTime("Stanley"));
+
+console.log(test.setTime("Brasilia"));
+console.log(test.setTime("Hamilton"));
+
+console.log(test.setTime("Buenos Aires"));
+console.log(test.setTime("King Edward Point"));
+
+console.log(test.setTime("Nuuk"));
+console.log(test.setTime("Praia"));
+
+console.log(test.setTime("Lome"));
+console.log(test.setTime("Sao Tome"));
