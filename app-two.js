@@ -92,6 +92,33 @@ class WorldClock {
     // Central European Summer Time
     this.CESTHours = this.hours;
 
+    // Uzbekistan Time
+    this.UZTHours = (3 + this.hours) % 24;
+
+    // Turkmenistan Time
+    this.TMTHours = (3 + this.hours) % 24;
+
+    // Tajikistan Time
+    this.TJTHours = (3 + this.hours) % 24;
+
+    // Pakistan Standard Time
+    this.PKTHours = (3 + this.hours) % 24;
+
+    // Maldives Time
+    this.MVTHours = (3 + this.hours) % 24;
+
+    // Kyrgyzstan Time
+    this.KGTHours = (4 + this.hours) % 24;
+
+    // Alma-Ata Time
+    this.ALMTHours = (4 + this.hours) % 24;
+
+    // Bhutan Time
+    this.BTTHours = (4 + this.hours) % 24;
+
+    // Bangladesh Standard Time
+    this.BSTHours = (4 + this.hours) % 24;
+
     // -------------------------------------------
 
     //!  Timezones with 30+ on minutes...
@@ -105,6 +132,19 @@ class WorldClock {
     // Afghanistan Time
     this.AFTHours = (2 + this.hours) % 24;
     this.AFTHoursForward = (3 + this.hours) % 24;
+
+    // India Standard Time
+    this.INDIASTHours = (3 + this.hours) % 24;
+    this.INDIASTHoursForward = (4 + this.hours) % 24;
+
+    // -------------------------------------------
+
+    //!  Timezones with 45+ on minutes...
+
+    this.fortyFivePlusMinutes = (45 + this.minutes) % 60;
+
+    this.NPTHours = (3 + this.hours) % 24;
+    this.NPTHoursForward = (4 + this.hours) % 24;
 
     // Timezone Lists
     // =======================================
@@ -233,11 +273,35 @@ class WorldClock {
 
     this.AMT = ["Yerevan"];
 
+    this.UZT = ["Tashkent"];
+
+    this.TMT = ["Ashgabat"];
+
+    this.TJT = ["Dushanbe"];
+
+    this.PKT = ["Islamabad"];
+
+    this.MVT = ["Male"];
+
+    this.KGT = ["Bishkek"];
+
+    this.ALMT = ["Nursultan"];
+
+    this.BTT = ["Thimpu"];
+
+    this.BST = ["Dhaka"];
+
     //! Timezones with 30+ on minutes...
 
     this.AFT = ["Kabul"];
 
     this.IRDT = ["Tehran"];
+
+    this.INDIAST = ["Sri Jayawardenepura Kotte", "New Delhi"];
+
+    //!  Timezones with 45+ on minutes...
+
+    this.NPT = ["Kathmandu"];
   }
 
   setTime(city) {
@@ -251,13 +315,22 @@ class WorldClock {
     let currentTimeZonePlusThirty;
     let currentTimePlusThirty;
 
+    //!  Timezones with 45+ on minutes...
+    let currentTimeZonePlusFortyFive;
+    let currentTimePlusFortyFive;
+
+    //? Regular timeZone first test
     for (let key of property) {
       if (typeof key[1] == "object" && key[1][0] && key[1].includes(city)) {
         currentTimeZone = key[0];
       }
-      //!  Timezones with 30+ on minutes...
+      //!  Timezones with 30+ on minutes first test
       if (typeof key[1] == "object" && key[1][0] && key[1].includes(city)) {
         currentTimeZonePlusThirty = key[0];
+      }
+      //!  Timezones with 45+ on minutes...
+      if (typeof key[1] == "object" && key[1][0] && key[1].includes(city)) {
+        currentTimeZonePlusFortyFive = key[0];
       }
     }
 
@@ -348,6 +421,42 @@ class WorldClock {
         break;
       case "CEST":
         currentTime = this.CESTHours;
+
+        break;
+      case "UZT":
+        currentTime = this.UZTHours;
+
+        break;
+      case "TMT":
+        currentTime = this.TMTHours;
+
+        break;
+      case "TJT":
+        currentTime = this.TJTHours;
+
+        break;
+      case "PKT":
+        currentTime = this.PKTHours;
+
+        break;
+      case "MVT":
+        currentTime = this.MVTHours;
+
+        break;
+      case "KGT":
+        currentTime = this.KGTHours;
+
+        break;
+      case "ALMT":
+        currentTime = this.ALMTHours;
+
+        break;
+      case "BTT":
+        currentTime = this.BTTHours;
+
+        break;
+      case "BST":
+        currentTime = this.BSTHours;
     }
 
     //!  Timezones with 30+ on minutes...
@@ -361,6 +470,20 @@ class WorldClock {
       case "AFT":
         currentTimePlusThirty = this.AFTHours;
         hourForward = this.AFTHoursForward;
+        break;
+
+      case "INDIAST":
+        currentTimePlusThirty = this.INDIASTHours;
+        hourForward = this.INDIASTHoursForward;
+        break;
+    }
+
+    //!  Timezones with 45+ on minutes...
+
+    switch (currentTimeZonePlusFortyFive) {
+      case "NPT":
+        currentTimePlusFortyFive = this.NPTHours;
+        hourForward = this.NPTHoursForward;
         break;
     }
 
@@ -377,17 +500,50 @@ class WorldClock {
 
     if (
       currentTimePlusThirty &&
-      this.thirtyPlusMinutes < 30 &&
+      this.thirtyPlusMinutes < 10 &&
       this.thirtyPlusMinutes >= 0
+    ) {
+      return `The current time in ${city} is ${hourForward}:0${this.thirtyPlusMinutes}`;
+    }
+    if (
+      currentTimePlusThirty &&
+      this.thirtyPlusMinutes < 30 &&
+      this.thirtyPlusMinutes >= 10
     ) {
       return `The current time in ${city} is ${hourForward}:${this.thirtyPlusMinutes}`;
     }
+
     if (
       currentTimePlusThirty &&
       this.thirtyPlusMinutes >= 30 &&
       this.thirtyPlusMinutes < 60
     ) {
       return `The current time in ${city} is ${currentTimePlusThirty}:${this.thirtyPlusMinutes}`;
+    }
+
+    //!  Timezones with 30+ on minutes...
+
+    if (
+      currentTimePlusFortyFive &&
+      this.fortyFivePlusMinutes < 10 &&
+      this.fortyFivePlusMinutes >= 0
+    ) {
+      return `The current time in ${city} is ${hourForward}:0${this.fortyFivePlusMinutes}`;
+    }
+    if (
+      currentTimePlusFortyFive &&
+      this.fortyFivePlusMinutes < 45 &&
+      this.fortyFivePlusMinutes >= 10
+    ) {
+      return `The current time in ${city} is ${hourForward}:${this.fortyFivePlusMinutes}`;
+    }
+
+    if (
+      currentTimePlusFortyFive &&
+      this.fortyFivePlusMinutes >= 45 &&
+      this.fortyFivePlusMinutes < 60
+    ) {
+      return `The current time in ${city} is ${currentTimePlusFortyFive}:${this.fortyFivePlusMinutes}`;
     }
   }
 }
@@ -431,6 +587,32 @@ console.log(test.setTime("Baku"));
 console.log(test.setTime("Berlin"));
 
 console.log(test.setTime("Yerevan"));
-console.log(test.setTime("Tehran"));
 
+console.log(test.setTime("Tashkent"));
+console.log(test.setTime("Ashgabat"));
+
+console.log(test.setTime("Dushanbe"));
+console.log(test.setTime("Islamabad"));
+
+console.log(test.setTime("Male"));
+console.log(test.setTime("Bishkek"));
+
+console.log(test.setTime("Nursultan"));
+console.log(test.setTime("Thimpu"));
+
+//!  Timezones with 30+ on minutes...
+
+console.log("====== CHECK 30 ========");
+
+console.log(test.setTime("Tehran"));
 console.log(test.setTime("Kabul"));
+console.log(test.setTime("Sri Jayawardenepura Kotte"));
+console.log(test.setTime("New Delhi"));
+
+//!  Timezones with 45+ on minutes...
+
+console.log("====== Check 45 =========");
+console.log(test.setTime("Kathmandu"));
+console.log("======================");
+
+console.log(test.setTime("Dhaka"));
