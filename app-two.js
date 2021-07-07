@@ -26,48 +26,70 @@ class WorldClock {
 
     //? TimeZones Hours Based on Central European Summer time
 
+    // British Summer Time
     this.BSTHours = (this.hours - 1) % 24;
 
+    // Central European Time
     this.CETHours = (this.hours - 1) % 24;
 
+    // Western European Summer Time
     this.WESTHours = (this.hours - 1) % 24;
 
+    // West Africa Time
     this.WATHours = (this.hours - 1) % 24;
 
+    // Irish Standard Time
     this.ISTHours = (this.hours - 1) % 24;
 
+    // Central Africa Time
     this.CATHours = this.hours;
 
+    // South African Standard Time
     this.SASTHours = this.hours;
 
+    // Eastern European Time
     this.EETHours = this.hours;
 
+    // Arabia Standard Time
     this.ASTHours = (1 + this.hours) % 24;
 
+    // Eastern European Summer Time
     this.EESTHours = (1 + this.hours) % 24;
 
+    // East Africa Time
     this.EATHours = (1 + this.hours) % 24;
 
+    // Turkey Time
     this.TRTHours = (1 + this.hours) % 24;
 
+    // Moscow Standard Time
     this.MSKHours = (1 + this.hours) % 24;
 
+    // Israeli Daylight Time
     this.IDTHours = (1 + this.hours) % 24;
 
+    // Gulf Standard Time
     this.GSTHours = (2 + this.hours) % 24;
 
+    // Seychelles Time
     this.SCTHours = (2 + this.hours) % 24;
 
+    // Reunion Time
     this.RETHours = (2 + this.hours) % 24;
 
+    // Mauritius Time
     this.MUTHours = (2 + this.hours) % 24;
 
+    // Georgia Standard Time
     this.GETHours = (2 + this.hours) % 24;
 
+    // Azerbaijan Time
     this.AZTHours = (2 + this.hours) % 24;
 
+    // Armenia Time
     this.AMTHours = (2 + this.hours) % 24;
 
+    // Central European Summer Time
     this.CESTHours = this.hours;
 
     // -------------------------------------------
@@ -76,10 +98,13 @@ class WorldClock {
 
     this.thirtyPlusMinutes = (30 + this.minutes) % 60;
 
+    // Iran Daylight Time
     this.IRDTHours = (2 + this.hours) % 24;
     this.IRDTHoursForward = (3 + this.hours) % 24;
 
+    // Afghanistan Time
     this.AFTHours = (2 + this.hours) % 24;
+    this.AFTHoursForward = (3 + this.hours) % 24;
 
     // Timezone Lists
     // =======================================
@@ -332,6 +357,11 @@ class WorldClock {
         currentTimePlusThirty = this.IRDTHours;
         hourForward = this.IRDTHoursForward;
         break;
+
+      case "AFT":
+        currentTimePlusThirty = this.AFTHours;
+        hourForward = this.AFTHoursForward;
+        break;
     }
 
     // Final if statements depending on minutes under ten and minute group....
@@ -402,3 +432,5 @@ console.log(test.setTime("Berlin"));
 
 console.log(test.setTime("Yerevan"));
 console.log(test.setTime("Tehran"));
+
+console.log(test.setTime("Kabul"));
