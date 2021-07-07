@@ -19,8 +19,6 @@ class WorldClock {
 
     this.minutes = this.now.getMinutes();
 
-    this.hours2 = this.now.getMinutes() * 60;
-
     //? Sydney Time
     this.sydneyHours = (8 + this.hours) % 24;
 
@@ -119,6 +117,84 @@ class WorldClock {
     // Bangladesh Standard Time
     this.BSTHours = (4 + this.hours) % 24;
 
+    // Indochina Time
+    this.ICTHours = (5 + this.hours) % 24;
+
+    // Western Indonesian Time
+    this.WIBHours = (5 + this.hours) % 24;
+
+    // China STandard Time
+    this.CSTHours = (6 + this.hours) % 24;
+
+    // Singapore Time
+    this.SGTHours = (6 + this.hours) % 24;
+
+    // Philippines Standard Time
+    this.PHSTHours = (6 + this.hours) % 24;
+
+    // Ulaanbaatar Time
+    this.ULATHours = (6 + this.hours) % 24;
+
+    // Malaysia Time
+    this.MYTHours = (6 + this.hours) % 24;
+
+    // Brunei Darussalam Time
+    this.BNTHours = (6 + this.hours) % 24;
+
+    // East Timor Time
+    this.TLTHours = (7 + this.hours) % 24;
+
+    //  Korean Standard Time
+    this.KSTHours = (7 + this.hours) % 24;
+
+    // Palau
+    this.PALAUHours = (7 + this.hours) % 24;
+
+    // Japan Standard Time
+    this.JSTHours = (7 + this.hours) % 24;
+
+    // Papua New Guinea Time
+    this.PGTHours = (8 + this.hours) % 24;
+
+    // Australian Eastern Standard Time
+    this.AESTHours = (8 + this.hours) % 24;
+
+    // Vanuatu Time
+    this.VUTHours = (9 + this.hours) % 24;
+
+    // solomon Islands Time
+    this.SBTHours = (9 + this.hours) % 24;
+
+    // Pohnpei Standard Time
+    this.PONTHours = (9 + this.hours) % 24;
+
+    // Tuvalu Time
+    this.TVTHours = (10 + this.hours) % 24;
+
+    // New Zealand Standard Time
+    this.NZSTHours = (10 + this.hours) % 24;
+
+    // Nauru Time
+    this.NRTHours = (10 + this.hours) % 24;
+
+    // Marshall Islands Time
+    this.MARSHALLHours = (10 + this.hours) % 24;
+
+    // Gilbert Island (Kiribati) Time
+    this.GILTHours = (10 + this.hours) % 24;
+
+    // Fiji Time
+    this.FJTHours = (10 + this.hours) % 24;
+
+    // Niue Time
+    this.NUTHours = (this.hours - 13) % 24;
+
+    // Tonga Time
+    this.TOTHours = (this.hours - 13) % 24;
+
+    // West Samoa Time
+    this.WSTHours = (this.hours - 13) % 24;
+
     // -------------------------------------------
 
     //!  Timezones with 30+ on minutes...
@@ -136,6 +212,10 @@ class WorldClock {
     // India Standard Time
     this.INDIASTHours = (3 + this.hours) % 24;
     this.INDIASTHoursForward = (4 + this.hours) % 24;
+
+    // Myanmar Time
+    this.MMTHours = (4 + this.hours) % 24;
+    this.MMTHoursForward = (5 + this.hours) % 24;
 
     // -------------------------------------------
 
@@ -291,6 +371,58 @@ class WorldClock {
 
     this.BST = ["Dhaka"];
 
+    this.ICT = ["Hanoi", "Bangkok", "Vientiane", "Phnom Penh"];
+
+    this.WIB = ["Jakarta"];
+
+    this.CST = ["Taipei", "Beijing"];
+
+    this.SGT = ["Singapore"];
+
+    this.PHST = ["Manila"];
+
+    this.ULAT = ["Ulaanbaatar"];
+
+    this.MYT = ["Kuala Lumpur"];
+
+    this.BNT = ["Bandar Seri Begawan"];
+
+    this.TLT = ["Dili"];
+
+    this.KST = ["Seoul", "Pyongyang"];
+
+    this.PALAU = ["Ngerulmud"];
+
+    this.JST = ["Tokyo"];
+
+    this.PGT = ["Port Moresby"];
+
+    this.AEST = ["Canberra"];
+
+    this.VUT = ["Port Vila"];
+
+    this.SBT = ["Honiara", "Gizo"];
+
+    this.PONT = ["Palikir", "Pohnpei"];
+
+    this.TVT = ["Funafuti"];
+
+    this.NZST = ["Wellington"];
+
+    this.NRT = ["Yaren"];
+
+    this.MARSHALL = ["Majuro"];
+
+    this.GILT = ["Tarawa"];
+
+    this.FJT = ["Suva"];
+
+    this.NUT = ["Alofi"];
+
+    this.TOT = ["Nukualofa"];
+
+    this.WST = ["Apia"];
+
     //! Timezones with 30+ on minutes...
 
     this.AFT = ["Kabul"];
@@ -298,6 +430,8 @@ class WorldClock {
     this.IRDT = ["Tehran"];
 
     this.INDIAST = ["Sri Jayawardenepura Kotte", "New Delhi"];
+
+    this.MMT = ["Naypyidaw"];
 
     //!  Timezones with 45+ on minutes...
 
@@ -457,6 +591,110 @@ class WorldClock {
         break;
       case "BST":
         currentTime = this.BSTHours;
+
+        break;
+      case "ICT":
+        currentTime = this.ICTHours;
+
+        break;
+      case "WIB":
+        currentTime = this.WIBHours;
+
+        break;
+      case "CST":
+        currentTime = this.CSTHours;
+
+        break;
+      case "SGT":
+        currentTime = this.SGTHours;
+
+        break;
+      case "PHST":
+        currentTime = this.PHSTHours;
+
+        break;
+      case "ULAT":
+        currentTime = this.ULATHours;
+
+        break;
+      case "MYT":
+        currentTime = this.MYTHours;
+
+        break;
+      case "BNT":
+        currentTime = this.BNTHours;
+
+        break;
+      case "TLT":
+        currentTime = this.TLTHours;
+
+        break;
+      case "KST":
+        currentTime = this.KSTHours;
+
+        break;
+      case "PALAU":
+        currentTime = this.PALAUHours;
+
+        break;
+      case "JST":
+        currentTime = this.JSTHours;
+
+        break;
+      case "PGT":
+        currentTime = this.PGTHours;
+
+        break;
+      case "AEST":
+        currentTime = this.AESTHours;
+
+        break;
+      case "VUT":
+        currentTime = this.VUTHours;
+
+        break;
+      case "SBT":
+        currentTime = this.SBTHours;
+
+        break;
+      case "PONT":
+        currentTime = this.PONTHours;
+
+        break;
+      case "TVT":
+        currentTime = this.TVTHours;
+
+        break;
+      case "NZST":
+        currentTime = this.NZSTHours;
+
+        break;
+      case "NRT":
+        currentTime = this.NRTHours;
+
+        break;
+      case "MARSHALL":
+        currentTime = this.MARSHALLHours;
+
+        break;
+      case "GILT":
+        currentTime = this.GILTHours;
+
+        break;
+      case "FJT":
+        currentTime = this.FJTHours;
+
+        break;
+      case "NUT":
+        currentTime = this.NUTHours;
+
+        break;
+      case "TOT":
+        currentTime = this.NUTHours;
+
+        break;
+      case "WST":
+        currentTime = this.WSTHours;
     }
 
     //!  Timezones with 30+ on minutes...
@@ -476,6 +714,11 @@ class WorldClock {
         currentTimePlusThirty = this.INDIASTHours;
         hourForward = this.INDIASTHoursForward;
         break;
+
+      case "MMT":
+        currentTimePlusThirty = this.MMTHours;
+        hourForward = this.MMTHoursForward;
+        break;
     }
 
     //!  Timezones with 45+ on minutes...
@@ -489,24 +732,24 @@ class WorldClock {
 
     // Final if statements depending on minutes under ten and minute group....
 
-    if (currentTime && this.minutes < 10) {
+    if (currentTime >= 0 && this.minutes < 10) {
       return `The current time in ${city} is ${currentTime}:0${this.minutes}`;
     }
-    if (currentTime && this.minutes >= 10) {
+    if (currentTime >= 0 && this.minutes >= 10) {
       return `The current time in ${city} is ${currentTime}:${this.minutes}`;
     }
 
     //!  Timezones with 30+ on minutes...
 
     if (
-      currentTimePlusThirty &&
+      currentTimePlusThirty >= 0 &&
       this.thirtyPlusMinutes < 10 &&
       this.thirtyPlusMinutes >= 0
     ) {
       return `The current time in ${city} is ${hourForward}:0${this.thirtyPlusMinutes}`;
     }
     if (
-      currentTimePlusThirty &&
+      currentTimePlusThirty >= 0 &&
       this.thirtyPlusMinutes < 30 &&
       this.thirtyPlusMinutes >= 10
     ) {
@@ -514,7 +757,7 @@ class WorldClock {
     }
 
     if (
-      currentTimePlusThirty &&
+      currentTimePlusThirty >= 0 &&
       this.thirtyPlusMinutes >= 30 &&
       this.thirtyPlusMinutes < 60
     ) {
@@ -524,14 +767,14 @@ class WorldClock {
     //!  Timezones with 30+ on minutes...
 
     if (
-      currentTimePlusFortyFive &&
+      currentTimePlusFortyFive >= 0 &&
       this.fortyFivePlusMinutes < 10 &&
       this.fortyFivePlusMinutes >= 0
     ) {
       return `The current time in ${city} is ${hourForward}:0${this.fortyFivePlusMinutes}`;
     }
     if (
-      currentTimePlusFortyFive &&
+      currentTimePlusFortyFive >= 0 &&
       this.fortyFivePlusMinutes < 45 &&
       this.fortyFivePlusMinutes >= 10
     ) {
@@ -539,7 +782,7 @@ class WorldClock {
     }
 
     if (
-      currentTimePlusFortyFive &&
+      currentTimePlusFortyFive >= 0 &&
       this.fortyFivePlusMinutes >= 45 &&
       this.fortyFivePlusMinutes < 60
     ) {
@@ -608,6 +851,7 @@ console.log(test.setTime("Tehran"));
 console.log(test.setTime("Kabul"));
 console.log(test.setTime("Sri Jayawardenepura Kotte"));
 console.log(test.setTime("New Delhi"));
+console.log(test.setTime("Naypyidaw"));
 
 //!  Timezones with 45+ on minutes...
 
@@ -616,3 +860,51 @@ console.log(test.setTime("Kathmandu"));
 console.log("======================");
 
 console.log(test.setTime("Dhaka"));
+console.log(test.setTime("Hanoi"));
+
+console.log(test.setTime("Bangkok"));
+console.log(test.setTime("Vientiane"));
+
+console.log(test.setTime("Jakarta"));
+console.log(test.setTime("Phnom Penh"));
+
+console.log(test.setTime("Taipei"));
+console.log(test.setTime("Singapore"));
+
+console.log(test.setTime("Manila"));
+console.log(test.setTime("Ulaanbaatar"));
+
+console.log(test.setTime("Kuala Lumpur"));
+console.log(test.setTime("Beijing"));
+
+console.log(test.setTime("Bandar Seri Begawan"));
+console.log(test.setTime("Dili"));
+
+console.log(test.setTime("Seoul"));
+console.log(test.setTime("Ngerulmud"));
+
+console.log(test.setTime("Pyongyang"));
+console.log(test.setTime("Tokyo"));
+
+console.log(test.setTime("Port Moresby"));
+console.log(test.setTime("Canberra"));
+
+console.log(test.setTime("Port Vila"));
+console.log(test.setTime("Honiara"));
+
+console.log(test.setTime("Gizo"));
+console.log(test.setTime("Palikir"));
+
+console.log(test.setTime("Funafuti"));
+console.log(test.setTime("Wellington"));
+
+console.log(test.setTime("Yaren"));
+console.log(test.setTime("Majuro"));
+
+console.log(test.setTime("Tarawa"));
+console.log(test.setTime("Suva"));
+
+console.log(test.setTime("Alofi"));
+console.log(test.setTime("Nukualofa"));
+
+console.log(test.setTime("Apia"));
