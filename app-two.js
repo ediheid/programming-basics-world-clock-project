@@ -4,20 +4,19 @@
 
 class WorldClock {
   constructor() {
-    //? Local Date Object (Berlin)
+    // Local Date Object (Berlin)
 
     this.now = new Date();
 
-    //? Local hour to calculate (GMT+2)
+    // Local hour to calculate (GMT+2)
 
     this.hours = this.now.getHours();
 
     this.minutes = this.now.getMinutes();
 
-    //? Sydney Time
-    this.sydneyHours = (8 + this.hours) % 24;
+    //? REGION -- TimeZones hours based on Central European Summer time
 
-    //? TimeZones Hours Based on Central European Summer time
+    // #region "Timezones with hour calculation"
 
     // British Summer Time
     this.BRITSTHours = (this.hours - 1) % 24;
@@ -182,19 +181,24 @@ class WorldClock {
     this.FJTHours = (10 + this.hours) % 24;
 
     // Niue Time
-    this.NUTHours = (this.hours - 13) % 24;
+    //! Changed from - to plus... Come back and check!
+    this.NUTHours = (11 + this.hours) % 24;
 
     // Tonga Time
-    this.TOTHours = (this.hours - 13) % 24;
+    //! Changed from - to plus... Come back and check!
+    this.TOTHours = (11 + this.hours) % 24;
 
     // West Samoa Time
-    this.WSTHours = (this.hours - 13) % 24;
+    //! Changed from - to plus... Come back and check!
+    this.WSTHours = (11 + this.hours) % 24;
 
     // Cook Island Time
-    this.CKTHours = (this.hours - 12) % 24;
+    //! Changed from - to plus... Come back and check!
+    this.CKTHours = (12 + this.hours) % 24;
 
     // Pictairn Standard Time
-    this.PSTHours = (this.hours - 10) % 24;
+    //! Changed from - to plus... Come back and check!
+    this.PSTHours = (14 + this.hours) % 24;
 
     // Central Standard Time
     this.CSTHours = (this.hours - 8) % 24;
@@ -299,8 +303,11 @@ class WorldClock {
     this.NPTHours = (3 + this.hours) % 24;
     this.NPTHoursForward = (4 + this.hours) % 24;
 
-    // Timezone Lists
-    // =======================================
+    // #endregion
+
+    //? REGION -- Timezone arrays with countries
+
+    // #region "Timezone arrays with countries"
 
     this.BRITST = ["Douglas", "London"];
 
@@ -392,6 +399,7 @@ class WorldClock {
       "North Nicosia",
       "Nicosia",
       "Sofia",
+      "East Jerusalem",
     ];
 
     this.EAT = [
@@ -606,7 +614,11 @@ class WorldClock {
     //!  Timezones with 45+ on minutes...
 
     this.NPT = ["Kathmandu"];
+
+    // #endregion
   }
+
+  // Method..
 
   setTime(city) {
     let property = Object.entries(this);
@@ -622,14 +634,15 @@ class WorldClock {
     let currentTimeZonePlusFortyFive;
     let currentTimePlusFortyFive;
 
-    //? Timezone Test
+    // CONDITION -- Timezone / City(input) match Loop
+    // ============================
 
-    //? Regular timeZone first test
+    // Regular timezone
     for (let key of property) {
       if (typeof key[1] == "object" && key[1][0] && key[1].includes(city)) {
         currentTimeZone = key[0];
       }
-      //!  Timezones with 30+ on minutes first test
+      //!  Timezones with 30+ on minutes
       if (typeof key[1] == "object" && key[1][0] && key[1].includes(city)) {
         currentTimeZonePlusThirty = key[0];
       }
@@ -638,6 +651,9 @@ class WorldClock {
         currentTimeZonePlusFortyFive = key[0];
       }
     }
+
+    //? REGION -- Switch statements for time zine and condition
+    // #region "Switch statements for time zone and condition"
 
     switch (currentTimeZone) {
       case "BRITST":
@@ -861,7 +877,7 @@ class WorldClock {
 
         break;
       case "TOT":
-        currentTime = this.NUTHours;
+        currentTime = this.TOTHours;
 
         break;
       case "WST":
@@ -1005,7 +1021,10 @@ class WorldClock {
         break;
     }
 
-    // Final if statements depending on minutes under ten and minute group....
+    //#endregion
+
+    // CONDITION -- Final if statements for output depending on minute group and 0 for under 10
+    // ============================
 
     if (currentTime >= 0 && this.minutes < 10) {
       return `The current time in ${city} is ${currentTime}:0${this.minutes}`;
@@ -1015,7 +1034,6 @@ class WorldClock {
     }
 
     //!  Timezones with 30+ on minutes...
-
     if (
       currentTimePlusThirty >= 0 &&
       this.thirtyPlusMinutes < 10 &&
@@ -1030,7 +1048,6 @@ class WorldClock {
     ) {
       return `The current time in ${city} is ${hourForward}:${this.thirtyPlusMinutes}`;
     }
-
     if (
       currentTimePlusThirty >= 0 &&
       this.thirtyPlusMinutes >= 30 &&
@@ -1040,7 +1057,6 @@ class WorldClock {
     }
 
     //!  Timezones with 30+ on minutes...
-
     if (
       currentTimePlusFortyFive >= 0 &&
       this.fortyFivePlusMinutes < 10 &&
@@ -1055,7 +1071,6 @@ class WorldClock {
     ) {
       return `The current time in ${city} is ${hourForward}:${this.fortyFivePlusMinutes}`;
     }
-
     if (
       currentTimePlusFortyFive >= 0 &&
       this.fortyFivePlusMinutes >= 45 &&
@@ -1179,13 +1194,6 @@ console.log(test.setTime("Majuro"));
 console.log(test.setTime("Tarawa"));
 console.log(test.setTime("Suva"));
 
-console.log(test.setTime("Alofi"));
-console.log(test.setTime("Nukualofa"));
-
-console.log(test.setTime("Apia"));
-console.log(test.setTime("Rarotonga"));
-
-console.log(test.setTime("Adamstown"));
 console.log(test.setTime("Managua"));
 
 console.log(test.setTime("Tegucigalpa"));
@@ -1229,3 +1237,17 @@ console.log(test.setTime("Praia"));
 
 console.log(test.setTime("Lome"));
 console.log(test.setTime("Sao Tome"));
+
+console.log(test.setTime("East Jerusalem"));
+
+console.log(test.setTime("Alofi"));
+console.log(test.setTime("Nukualofa"));
+
+console.log(test.setTime("Apia"));
+console.log(test.setTime("Rarotonga"));
+
+console.log(test.setTime("Adamstown"));
+
+console.log(test.setTime("Ulaanbaatar"));
+
+console.log(test.setTime("Caracas"));
